@@ -40,6 +40,7 @@ function displayWinner(e) {
   if (userChoice === computerChoice) {
     result.textContent = `You both choose ${userChoice} : Its Draw !!`;
     result.style.color = "#e2c539";
+    return;
   }
   if (
     (userChoice === "Rock" && computerChoice === "Scissors") ||
@@ -50,18 +51,23 @@ function displayWinner(e) {
     result.style.color = "#00941a";
     playerScore = playerScore + 1;
     scoreOfPlayer.textContent = playerScore;
-  }
-
-  if (
-    (userChoice === "Scissors" && computerChoice === "Rock") ||
-    (userChoice === "Paper" && computerChoice === "Scissors") ||
-    (userChoice === "Rock" && computerChoice === "Paper")
-  ) {
+  } else {
     result.textContent = `You choose ${userChoice}, Computer choose ${computerChoice}: You loose !!`;
     result.style.color = "#da0101ff";
     computerScore = computerScore + 1;
     scoreOfComputer.textContent = computerScore;
   }
+
+  // if (
+  //   (userChoice === "Scissors" && computerChoice === "Rock") ||
+  //   (userChoice === "Paper" && computerChoice === "Scissors") ||
+  //   (userChoice === "Rock" && computerChoice === "Paper")
+  // ) {
+  //   result.textContent = `You choose ${userChoice}, Computer choose ${computerChoice}: You loose !!`;
+  //   result.style.color = "#da0101ff";
+  //   computerScore = computerScore + 1;
+  //   scoreOfComputer.textContent = computerScore;
+  // }
 
   if (playerScore > computerScore) {
     highScore = playerScore;
